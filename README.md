@@ -4,7 +4,7 @@ A from-scratch implementation of the **K-Nearest Neighbors (KNN)** algorithm usi
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Features](#features)
@@ -20,7 +20,7 @@ A from-scratch implementation of the **K-Nearest Neighbors (KNN)** algorithm usi
 
 ---
 
-## Overview
+## Project Overview
 
 This project implements the KNN classification algorithm **without using scikit-learn**, relying solely on NumPy for all computations. The goal is to predict the gender of an individual (Female / Male) from their height (cm) and weight (kg), using a synthetic dataset generated from Gaussian distributions.
 
@@ -38,44 +38,12 @@ It covers the full ML pipeline: data generation, exploration, model implementati
 
 ---
 
-## Project Structure
-
-```
-knn_project/
-│
-├── knn_project.ipynb     # Main notebook (full pipeline)
-└── README.md
-```
-
----
-
 ## Getting Started
 
 ### Prerequisites
 
 - Python 3.8+
 - Jupyter Notebook or JupyterLab
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/your-username/knn-project.git
-cd knn-project
-
-# Install dependencies
-pip install numpy scipy matplotlib pandas
-```
-
-### Usage
-
-Launch the notebook:
-
-```bash
-jupyter notebook knn_project.ipynb
-```
-
-Run all cells sequentially. The notebook is self-contained — the dataset is generated programmatically, no external files required.
 
 ---
 
@@ -108,12 +76,12 @@ Odd values of `k` from 1 to 31 are tested to avoid tie-breaking issues. Train an
 
 ## Results
 
-| Metric    | Value (k=7) |
-|-----------|-------------|
-| Accuracy  | 1.000       |
-| Precision | 1.000       |
-| Recall    | 1.000       |
-| F1-score  | 1.000       |
+| Metric    | Value (k=1) | Value (k=7) | Value (k=21) |
+|-----------|-------------|-------------|-------------|
+| Accuracy  | 0.950       | 1.000       | 0.975       |
+| Precision | 0.950       | 1.000       | 1.000       |
+| Recall    | 0.950       | 1.000       | 0.950       |
+| F1-score  | 0.950       | 1.000       | 0.974       |
 
 > **Best k = 7** — The model achieves perfect classification on the test set at this value.
 
@@ -123,7 +91,7 @@ Odd values of `k` from 1 to 31 are tested to avoid tie-breaking issues. Train an
 |---------|----------|
 | k = 1   | Overfitting — irregular boundaries, sensitive to noise |
 | k = 7   | Best bias/variance tradeoff |
-| k = 21  | Underfitting — overly smooth boundaries, misclassifications |
+| k = 18  | Underfitting — overly smooth boundaries, misclassifications |
 
 > These results are expected: the dataset is synthetic and the two classes are well-separated in the height/weight space, making it an ideal use case for KNN.
 
@@ -131,7 +99,7 @@ Odd values of `k` from 1 to 31 are tested to avoid tie-breaking issues. Train an
 
 ## Limitations
 
-- **Scalability:** Prediction requires computing distances to all training points — expensive for large datasets.
+- **Scalability:** Prediction requires computing distances to all training points - expensive for large datasets.
 - **Feature scaling:** If height and weight were on different scales, distances would be biased. In a real-world scenario, features should be normalized (e.g., StandardScaler).
 - **Curse of dimensionality:** KNN degrades in high-dimensional spaces where distances become less meaningful.
 
