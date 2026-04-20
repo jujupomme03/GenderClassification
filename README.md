@@ -1,4 +1,4 @@
-# 🔍 KNN from Scratch — Gender Classification
+# KNN - Gender Classification
 
 A from-scratch implementation of the **K-Nearest Neighbors (KNN)** algorithm using only NumPy, applied to binary gender classification based on height and weight.
 
